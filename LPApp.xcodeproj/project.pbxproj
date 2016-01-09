@@ -13,6 +13,10 @@
 		4336F6541C38D9D500E7EF5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4336F6531C38D9D500E7EF5A /* Assets.xcassets */; };
 		4336F6571C38D9D500E7EF5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4336F6551C38D9D500E7EF5A /* LaunchScreen.storyboard */; };
 		4336F6621C38D9D500E7EF5A /* LPAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F6611C38D9D500E7EF5A /* LPAppTests.swift */; };
+		4336F66D1C38E50100E7EF5A /* SetRepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F66C1C38E50100E7EF5A /* SetRepTableViewCell.swift */; };
+		4336F66F1C38E67200E7EF5A /* SetRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F66E1C38E67200E7EF5A /* SetRep.swift */; };
+		4336F6741C38E87E00E7EF5A /* SetRepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F6721C38E87E00E7EF5A /* SetRepTableViewController.swift */; };
+		4336F6751C38E87E00E7EF5A /* SetRepTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4336F6731C38E87E00E7EF5A /* SetRepTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		4336F65D1C38D9D500E7EF5A /* LPAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LPAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4336F6611C38D9D500E7EF5A /* LPAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPAppTests.swift; sourceTree = "<group>"; };
 		4336F6631C38D9D500E7EF5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4336F66C1C38E50100E7EF5A /* SetRepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRepTableViewCell.swift; sourceTree = "<group>"; };
+		4336F66E1C38E67200E7EF5A /* SetRep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRep.swift; sourceTree = "<group>"; };
+		4336F6721C38E87E00E7EF5A /* SetRepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetRepTableViewController.swift; path = ../SetRepTableViewController.swift; sourceTree = "<group>"; };
+		4336F6731C38E87E00E7EF5A /* SetRepTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SetRepTableViewController.xib; path = ../SetRepTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +86,12 @@
 			isa = PBXGroup;
 			children = (
 				4336F64C1C38D9D500E7EF5A /* AppDelegate.swift */,
+				4336F6721C38E87E00E7EF5A /* SetRepTableViewController.swift */,
+				4336F6731C38E87E00E7EF5A /* SetRepTableViewController.xib */,
 				4336F64E1C38D9D500E7EF5A /* ViewController.swift */,
 				4336F6501C38D9D500E7EF5A /* Main.storyboard */,
+				4336F66E1C38E67200E7EF5A /* SetRep.swift */,
+				4336F66C1C38E50100E7EF5A /* SetRepTableViewCell.swift */,
 				4336F6531C38D9D500E7EF5A /* Assets.xcassets */,
 				4336F6551C38D9D500E7EF5A /* LaunchScreen.storyboard */,
 				4336F6581C38D9D500E7EF5A /* Info.plist */,
@@ -177,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4336F6751C38E87E00E7EF5A /* SetRepTableViewController.xib in Resources */,
 				4336F6571C38D9D500E7EF5A /* LaunchScreen.storyboard in Resources */,
 				4336F6541C38D9D500E7EF5A /* Assets.xcassets in Resources */,
 				4336F6521C38D9D500E7EF5A /* Main.storyboard in Resources */,
@@ -198,6 +211,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4336F64F1C38D9D500E7EF5A /* ViewController.swift in Sources */,
+				4336F66D1C38E50100E7EF5A /* SetRepTableViewCell.swift in Sources */,
+				4336F6741C38E87E00E7EF5A /* SetRepTableViewController.swift in Sources */,
+				4336F66F1C38E67200E7EF5A /* SetRep.swift in Sources */,
 				4336F64D1C38D9D500E7EF5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +347,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.LPApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -342,6 +359,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.LPApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
