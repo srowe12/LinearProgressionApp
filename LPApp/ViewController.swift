@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var programButton: UIBarButtonItem!
     var one_rep_max: Int? = 0
     var lol: Int?
+    var training_max: Int?
     
 
     override func viewDidLoad() {
@@ -51,7 +52,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 liftLabel.text = "Please enter a positive integer"
             }
             else{
-                liftLabel.text = "100"
+                training_max = ComputeTrainingMax(one_rep_max!)
+                liftLabel.text = "Training Max Fix Rounding: " + String(training_max!)
             }
         }
         else {
@@ -70,6 +72,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
+    }
+    
+    // MARK: Math
+    
+    func ComputeTrainingMax(value: Int) -> Int {
+        let training_max_double = Double(value) * 0.90
+        return RoundNearestFive(training_max_double)
+        
+    }
+    func RoundNearestFive(value: Double) -> Int {
+        return 5 * Int(round(value / 5.0))
+        
     }
     
 
