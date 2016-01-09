@@ -40,6 +40,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        oneRepMaxTextField.text! = ""
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
         one_rep_max = Int(oneRepMaxTextField.text!)
         if one_rep_max != nil {
