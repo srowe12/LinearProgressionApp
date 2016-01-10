@@ -22,6 +22,7 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         training_max = received_training_max
+        saveButton.enabled = false
         
         
 
@@ -51,15 +52,22 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequed using a cell identifier. I guess as we scroll we reuse them?
         //let reps = bench.reps[indexPath.row]
+        
+        let rep_number: Int = bench.reps[indexPath.row]
+        let percent : Double = bench.percents[indexPath.row]
+        var max_string: String?
+        if let val = training_max {
+            max_string = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
+        }
         if indexPath.row == 3
         {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetRepTableViewCell", forIndexPath: indexPath) as! SetRepTableViewCell
             
-            let rep_number: Int = bench.reps[indexPath.row]
-            let percent : Double = bench.percents[indexPath.row]
-            if let val = training_max {
-                cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
-            }
+           
+           // if let val = training_max {
+            //    cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
+            //}
+            cell.setRepLabel.text = max_string!
             cell.repTextField.delegate =  self
             if indexPath.row == 3 {
                 cell.repTextField.text = "Hi"
@@ -67,13 +75,12 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
             return cell
         }
         else {
-                let cell = tableView.dequeueReusableCellWithIdentifier("LolCell", forIndexPath: indexPath) as! CustomViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("LolCell", forIndexPath: indexPath) as! CustomViewCell
+            cell.setRepLabel.text = max_string!
             
-            let rep_number: Int = bench.reps[indexPath.row]
-            let percent : Double = bench.percents[indexPath.row]
-            if let val = training_max {
-                cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
-            }
+            //if let val = training_max {
+             //   cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
+            //}
             //cell.repTextField.delegate =  self
             //if indexPath.row == 3 {
             //    cell.repTextField.text = "Hi"
