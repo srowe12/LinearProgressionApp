@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     // Text field delegate handles the user input into the text field.
     
     @IBOutlet weak var oneRepMaxTextField: UITextField!
     @IBOutlet weak var liftLabel: UILabel!
     @IBOutlet weak var programButton: UIBarButtonItem!
+    @IBOutlet weak var liftPicker: UIPickerView!
     
     //Programmatically Define a UITextField
     let trainingMaxTextField = UITextField(frame: CGRectMake(20,100,80,40))
@@ -24,6 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var one_rep_max: Int? = 0
     var lol: Int?
     var training_max: Int?
+    let lift_data = ["Bench", "Squats", "Deadlifts", "OHP"]
     
 
     override func viewDidLoad() {
@@ -38,6 +40,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
         oneRepMaxTextField.delegate = self //Identifies the delegate as this class/ViewController
+        
+        liftPicker.dataSource = self // Identifies the dataSource as this class/ViewController
+        liftPicker.delegate = self // Identifies the delegate as this class/ViewController
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -120,6 +125,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         
+    }
+    
+    // MARK: LiftPicker DataSource and Delegates
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return lift_data.count
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        return lift_data[row]
+    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        liftLabel.text = lift_data[row]
     }
     
     

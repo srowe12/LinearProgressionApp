@@ -105,6 +105,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nt-eA-dAi">
+                                <rect key="frame" x="14" y="192" width="600" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -117,6 +120,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="liftLabel" destination="3Qs-BV-SBq" id="xJY-5L-w4D"/>
+                        <outlet property="liftPicker" destination="5Nt-eA-dAi" id="bh4-P1-9Lf"/>
                         <outlet property="oneRepMaxTextField" destination="Ycy-bd-NXs" id="nM3-f8-Tp5"/>
                         <outlet property="programButton" destination="Uge-hT-cyM" id="kc2-9D-5sB"/>
                     </connections>
