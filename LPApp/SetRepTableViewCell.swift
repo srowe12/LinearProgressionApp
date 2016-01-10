@@ -29,3 +29,15 @@ class SetRepTableViewCell: UITableViewCell {
     }
 
 }
+
+class CustomViewCell: UITableViewCell {
+    @IBOutlet weak var setRepLabel: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //repTextField.enabled = false
+    }
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }}

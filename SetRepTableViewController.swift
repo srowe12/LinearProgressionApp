@@ -51,32 +51,53 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequed using a cell identifier. I guess as we scroll we reuse them?
         //let reps = bench.reps[indexPath.row]
+        if indexPath.row == 3
+        {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetRepTableViewCell", forIndexPath: indexPath) as! SetRepTableViewCell
+            
+            let rep_number: Int = bench.reps[indexPath.row]
+            let percent : Double = bench.percents[indexPath.row]
+            if let val = training_max {
+                cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
+            }
+            cell.repTextField.delegate =  self
+            if indexPath.row == 3 {
+                cell.repTextField.text = "Hi"
+            }
+            return cell
+        }
+        else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("LolCell", forIndexPath: indexPath) as! CustomViewCell
+            
+            let rep_number: Int = bench.reps[indexPath.row]
+            let percent : Double = bench.percents[indexPath.row]
+            if let val = training_max {
+                cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
+            }
+            //cell.repTextField.delegate =  self
+            //if indexPath.row == 3 {
+            //    cell.repTextField.text = "Hi"
+            //}
+            return cell
         
-        let rep_number: Int = bench.reps[indexPath.row]
-        let percent : Double = bench.percents[indexPath.row]
-        if let val = training_max {
-            cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
         }
-        cell.repTextField.delegate =  self
-        if indexPath.row == 3 {
-            cell.repTextField.text = "Hi"
-        }
-        return cell
+        
     }
     
     
     // MARK: UITextFieldDelegate Methods
     func textFieldDidBeginEditing(textField: UITextField) {
         textField.text = ""
+        saveButton.enabled = false
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder() //Give up being rist responder
         return true
     }
     func textFieldDidEndEditing(textField: UITextField) {
-        
+        // TODO: Validate input!
         num_reps = Int(textField.text!)
+        saveButton.enabled = true
     }
     
 
@@ -125,7 +146,7 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
         
         if sender === saveButton {
-            num_reps = 
+            
         }
     }
 
