@@ -8,13 +8,15 @@
 
 import UIKit
 
-class SetRepTableViewController: UITableViewController {
+class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Define set reps array here to store data!
     let bench = BenchHeavy()
     var training_max:Int?
     var received_training_max = 0
+    var num_reps: Int?
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
         
     override func viewDidLoad() {
@@ -56,16 +58,27 @@ class SetRepTableViewController: UITableViewController {
         if let val = training_max {
             cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
         }
-
-
+        cell.repTextField.delegate =  self
+        if indexPath.row == 3 {
+            cell.repTextField.text = "Hi"
+        }
         return cell
     }
     
-    @IBAction func unwindToSetRep(sender: UIStoryboardSegue) {
-       // if let sourceViewController = sender.sourceViewController as? ViewController, new_one_rep_max = sourceViewController.one_rep_max {
-            //one_rep_max = new_one_rep_max
-        //}
+    
+    // MARK: UITextFieldDelegate Methods
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
     }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder() //Give up being rist responder
+        return true
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+        num_reps = Int(textField.text!)
+    }
+    
 
 
     /*
@@ -103,14 +116,18 @@ class SetRepTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if sender === saveButton {
+            num_reps = 
+        }
     }
-    */
+
     
 }

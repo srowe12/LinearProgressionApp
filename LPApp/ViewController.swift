@@ -112,6 +112,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func unwindSetRepTableView(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? SetRepTableViewController{
+            oneRepMaxTextField.text = "lol"
+        }
+        
+        
+    }
+    
     
 
 

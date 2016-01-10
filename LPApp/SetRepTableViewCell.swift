@@ -11,11 +11,16 @@ import UIKit
 class SetRepTableViewCell: UITableViewCell {
 
     @IBOutlet weak var setRepLabel: UILabel!
+    
+    @IBOutlet weak var repTextField: UITextField!
     override func awakeFromNib() {
+
+        
         super.awakeFromNib()
+        
         // Initialization code
         
-    }
+          }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
