@@ -17,6 +17,8 @@
 		4336F66F1C38E67200E7EF5A /* SetRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F66E1C38E67200E7EF5A /* SetRep.swift */; };
 		4336F6741C38E87E00E7EF5A /* SetRepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F6721C38E87E00E7EF5A /* SetRepTableViewController.swift */; };
 		4336F6751C38E87E00E7EF5A /* SetRepTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4336F6731C38E87E00E7EF5A /* SetRepTableViewController.xib */; };
+		4336F6771C42099D00E7EF5A /* math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F6761C42099D00E7EF5A /* math.swift */; };
+		4336F6781C42099D00E7EF5A /* math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336F6761C42099D00E7EF5A /* math.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		4336F66E1C38E67200E7EF5A /* SetRep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRep.swift; sourceTree = "<group>"; };
 		4336F6721C38E87E00E7EF5A /* SetRepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetRepTableViewController.swift; path = ../SetRepTableViewController.swift; sourceTree = "<group>"; };
 		4336F6731C38E87E00E7EF5A /* SetRepTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SetRepTableViewController.xib; path = ../SetRepTableViewController.xib; sourceTree = "<group>"; };
+		4336F6761C42099D00E7EF5A /* math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = math.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 				4336F6531C38D9D500E7EF5A /* Assets.xcassets */,
 				4336F6551C38D9D500E7EF5A /* LaunchScreen.storyboard */,
 				4336F6581C38D9D500E7EF5A /* Info.plist */,
+				4336F6761C42099D00E7EF5A /* math.swift */,
 			);
 			path = LPApp;
 			sourceTree = "<group>";
@@ -211,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4336F64F1C38D9D500E7EF5A /* ViewController.swift in Sources */,
+				4336F6771C42099D00E7EF5A /* math.swift in Sources */,
 				4336F66D1C38E50100E7EF5A /* SetRepTableViewCell.swift in Sources */,
 				4336F6741C38E87E00E7EF5A /* SetRepTableViewController.swift in Sources */,
 				4336F66F1C38E67200E7EF5A /* SetRep.swift in Sources */,
@@ -223,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4336F6621C38D9D500E7EF5A /* LPAppTests.swift in Sources */,
+				4336F6781C42099D00E7EF5A /* math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +412,7 @@
 				4336F6681C38D9D500E7EF5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4336F6691C38D9D500E7EF5A /* Build configuration list for PBXNativeTarget "LPAppTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +421,7 @@
 				4336F66B1C38D9D500E7EF5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

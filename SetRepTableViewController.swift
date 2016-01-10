@@ -12,14 +12,14 @@ class SetRepTableViewController: UITableViewController {
     
     // Define set reps array here to store data!
     let bench = BenchHeavy()
-    var one_rep_max:Int?
-    var received_one_rep_max = 0
+    var training_max:Int?
+    var received_training_max = 0
     
     
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        one_rep_max = received_one_rep_max
+        training_max = received_training_max
         
         
 
@@ -52,8 +52,9 @@ class SetRepTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetRepTableViewCell", forIndexPath: indexPath) as! SetRepTableViewCell
         
         let rep_number: Int = bench.reps[indexPath.row]
-        if let val = one_rep_max {
-            cell.setRepLabel.text = String(rep_number) + " x  " + String(val)
+        let percent : Double = bench.percents[indexPath.row]
+        if let val = training_max {
+            cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
         }
 
 

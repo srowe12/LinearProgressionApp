@@ -106,23 +106,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 //self.one_rep_max = 5
                 let destinationViewController = segue.destinationViewController as! SetRepTableViewController
             if let value = training_max {
-                destinationViewController.received_one_rep_max = value
+                destinationViewController.received_training_max = value
             }
             
         }
     }
     
-    // MARK: Math
-    
-    func ComputeTrainingMax(value: Int) -> Int {
-        let training_max_double = Double(value) * 0.90
-        return RoundNearestFive(training_max_double)
-        
-    }
-    func RoundNearestFive(value: Double) -> Int {
-        return 5 * Int(round(value / 5.0))
-        
-    }
     
 
 
