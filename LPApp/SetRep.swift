@@ -8,7 +8,29 @@
 
 import Foundation
 
-class SetRep {
+class LiftList {
+    let bench_heavy = BenchHeavy()
+    let squats = Squats()
+    let ohp = Ohp()
+    let deadlifts = Deadlifts()
+    let bench_light = BenchLight()
+    var rep_dictionary =  [String : [Int]]() // = ["Squats": squats.reps]
+    var percent_dictionary = [String : [Double]]() // ["Squats": squats.percents
+    init() {
+        rep_dictionary["Bench"] = bench_heavy.reps
+        rep_dictionary["Squats"] = squats.reps
+        rep_dictionary["OHP"] = ohp.reps
+        rep_dictionary["Bench Hypertrophy"] = bench_light.reps
+        rep_dictionary["Deadlifts"] = deadlifts.reps
+        
+        percent_dictionary["Bench"] =      bench_heavy.percents
+        percent_dictionary["Squats"] =  squats.percents
+        percent_dictionary["OHP"] = ohp.percents
+        percent_dictionary["Bench Hypertrophy"] = bench_light.percents
+        percent_dictionary["Deadlifts"] = deadlifts.percents
+        
+        
+    }
     // MARK: Properties
     //SetRep should contain ...not sure.
 }

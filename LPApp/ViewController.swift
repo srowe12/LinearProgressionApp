@@ -25,9 +25,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     var one_rep_max: Int? = 0
     var lol: Int?
     var training_max: Int?
-    let lift_data = ["Bench", "Squats", "Deadlifts", "OHP"]
+    let lift_data = ["Bench", "Squats", "Deadlifts", "OHP", "Bench Hypertrophy"]
     var chosen_lift = "Bench"
     let bench = BenchHeavy()
+    let squats = Squats()
+    let lift_list = LiftList()
 
 
     override func viewDidLoad() {
@@ -113,6 +115,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             one_rep_max = Int(oneRepMaxTextField.text!)
             let destinationViewController = segue.destinationViewController as! SetRepTableViewController
             destinationViewController.sent_percents = ChoosePerecentArray(chosen_lift)
+            destinationViewController.reps = ChooseRepArray(chosen_lift)
             
             if let value = training_max {
                 
@@ -152,15 +155,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     
     
     // MARK: Strings
-    
+    func ChooseRepArray(lift: String) -> [Int] {
+        return lift_list.rep_dictionary[lift]!
+    }
     func ChoosePerecentArray(lift: String) -> [Double] {
-        if lift == "Bench" {
-            return bench.percents
-        }
-        else {
-            print("WHY!")
-            return bench.percents
-        }
+        return lift_list.percent_dictionary[lift]!
     }
 
 

@@ -63,8 +63,8 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
         // Table view cells are reused and should be dequed using a cell identifier. I guess as we scroll we reuse them?
         //let reps = bench.reps[indexPath.row]
         
-        let rep_number: Int = bench.reps[indexPath.row]
-        //let percent : Double = bench.percents[indexPath.row]
+        //let rep_number: Int = bench.reps[indexPath.row]
+        let rep_number = reps![indexPath.row]
         let percent : Double = percents[indexPath.row]
         var max_string: String?
         if let val = training_max {
@@ -72,30 +72,18 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
         }
         if indexPath.row == 3
         {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SetRepTableViewCell", forIndexPath: indexPath) as! SetRepTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("SetRepTableViewCell", forIndexPath: indexPath) as! SetRepTableViewCell
             
-           
-           // if let val = training_max {
-            //    cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
-            //}
             cell.setRepLabel.text = max_string!
             cell.repTextField.delegate =  self
-            if indexPath.row == 3 {
-                cell.repTextField.text = "Hi"
-            }
+            cell.repTextField.text = "Hi"
+            
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("LolCell", forIndexPath: indexPath) as! CustomViewCell
             cell.setRepLabel.text = max_string!
-            
-            //if let val = training_max {
-             //   cell.setRepLabel.text = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))
-            //}
-            //cell.repTextField.delegate =  self
-            //if indexPath.row == 3 {
-            //    cell.repTextField.text = "Hi"
-            //}
+        
             return cell
         
         }
