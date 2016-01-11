@@ -15,6 +15,13 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
     var training_max:Int?
     var received_training_max = 0
     var num_reps: Int?
+    var percents: [Double] = []
+    var sent_percents: [Double] = [] {
+        didSet{
+             percents = sent_percents
+        }
+    }
+    var reps: [Int]?
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -23,6 +30,9 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         training_max = received_training_max
         saveButton.enabled = false
+        for item in sent_percents {
+            print(item)
+        }
         
         
 
@@ -54,7 +64,8 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
         //let reps = bench.reps[indexPath.row]
         
         let rep_number: Int = bench.reps[indexPath.row]
-        let percent : Double = bench.percents[indexPath.row]
+        //let percent : Double = bench.percents[indexPath.row]
+        let percent : Double = percents[indexPath.row]
         var max_string: String?
         if let val = training_max {
             max_string = String(rep_number) + " x  " + String(RoundToNearestFive(percent * Double(val)))

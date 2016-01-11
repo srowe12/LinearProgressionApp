@@ -26,7 +26,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     var lol: Int?
     var training_max: Int?
     let lift_data = ["Bench", "Squats", "Deadlifts", "OHP"]
-    
+    var chosen_lift = "Bench"
+    let bench = BenchHeavy()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             if one_rep_max != nil {
                 if one_rep_max <= 0 {
                     liftLabel.text = "Please enter a positive integer"
+                    liftLabel.text = String(bench.percents[0])
                 }
                 else{
                     training_max = ComputeTrainingMax(one_rep_max!)
@@ -107,11 +110,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
          if programButton === sender {
             
-                one_rep_max = Int(oneRepMaxTextField.text!)
-                //self.one_rep_max = 5
-                let destinationViewController = segue.destinationViewController as! SetRepTableViewController
+            one_rep_max = Int(oneRepMaxTextField.text!)
+            let destinationViewController = segue.destinationViewController as! SetRepTableViewController
+            destinationViewController.sent_percents = ChoosePerecentArray(chosen_lift)
+            
             if let value = training_max {
+                
                 destinationViewController.received_training_max = value
+                print("lol")
+                
+                //destinationViewController.percents = lift_dictionary["Bench"]!.percents
             }
             
         }
@@ -139,9 +147,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         liftLabel.text = lift_data[row]
+        chosen_lift = lift_data[row]
     }
     
     
+    // MARK: Strings
+    
+    func ChoosePerecentArray(lift: String) -> [Double] {
+        if lift == "Bench" {
+            return bench.percents
+        }
+        else {
+            print("WHY!")
+            return bench.percents
+        }
+    }
 
 
 }
