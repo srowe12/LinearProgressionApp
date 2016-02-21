@@ -30,6 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     let bench = BenchHeavy()
     let squats = Squats()
     let lift_list = LiftList()
+    var training_max_list : [Double] = [] // TODO: Use the training_max-list to store and increment as we improve. 
 
 
     override func viewDidLoad() {
@@ -131,7 +132,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     @IBAction func unwindSetRepTableView(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? SetRepTableViewController{
             if let num_reps = sourceViewController.num_reps {
-                oneRepMaxTextField.text = String(num_reps)
+                if num_reps > 1 {
+                    oneRepMaxTextField.text = String(one_rep_max! + 1)
+                    training_max! +=  5
+                    trainingMaxTextField.text! = String(training_max!)
+                }
             }
         }
         

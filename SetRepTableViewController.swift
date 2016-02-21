@@ -61,9 +61,7 @@ class SetRepTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequed using a cell identifier. I guess as we scroll we reuse them?
-        //let reps = bench.reps[indexPath.row]
-        
-        //let rep_number: Int = bench.reps[indexPath.row]
+
         let rep_number = reps![indexPath.row]
         let percent : Double = percents[indexPath.row]
         var max_string: String?
