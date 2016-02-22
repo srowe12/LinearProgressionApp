@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     let bench = BenchHeavy()
     let squats = Squats()
     let lift_list = LiftList()
-    var training_max_list : [Double] = [] // TODO: Use the training_max-list to store and increment as we improve. 
+    var training_max_list : [String: Int] =  ["Bench" : 0, "Squats" : 0, "Deadlifts" : 0, "OHP" : 0, "Bench Hypertrophy" : 0]// TODO: Use the training_max-list to store and increment as we improve.
 
 
     override func viewDidLoad() {
@@ -41,6 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         trainingMaxTextField.returnKeyType = UIReturnKeyType.Done
         trainingMaxTextField.delegate = self
         self.view.addSubview(trainingMaxTextField)
+
         
         
         
@@ -88,6 +89,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                 else{
                     training_max = ComputeTrainingMax(one_rep_max!)
                     liftLabel.text = "Training Max: " + String(training_max!)
+                    training_max_list[chosen_lift] = training_max!
                     trainingMaxTextField.text = String(training_max!)
                 }
             }
@@ -133,9 +135,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         if let sourceViewController = sender.sourceViewController as? SetRepTableViewController{
             if let num_reps = sourceViewController.num_reps {
                 if num_reps > 1 {
-                    oneRepMaxTextField.text = String(one_rep_max! + 1)
-                    training_max! +=  5
-                    trainingMaxTextField.text! = String(training_max!)
+                    training_max_list[chosen_lift]!  += 5
+                    trainingMaxTextField.text! = String(training_max_list[chosen_lift]!)
                 }
             }
         }
@@ -156,6 +157,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         liftLabel.text = lift_data[row]
         chosen_lift = lift_data[row]
+        trainingMaxTextField.text! = String(training_max_list[chosen_lift]!)
     }
     
     
